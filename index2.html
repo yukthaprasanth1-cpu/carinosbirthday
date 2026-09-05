@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>A Little Surprise for Carino ♡</title>
+
+    <style>
+/* =========================
+   HEART LOCK
+========================= */
+
+#heart-lock {
+    width: 120px;
+    height: 110px;
+
+    margin: 20px auto 30px;
+
+    position: relative;
+
+    cursor: pointer;
+
+    transition: transform 0.3s ease;
+}
+
+#heart-lock:hover {
+    transform: scale(1.05);
+}
+
+
+/* The heart */
+
+.heart {
+    position: absolute;
+
+    width: 75px;
+    height: 75px;
+
+    background: #c97b83;
+
+    left: 22px;
+    top: 20px;
+
+    transform: rotate(-45deg);
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 8px 20px rgba(130, 70, 75, 0.25);
+}
+
+.heart::before,
+.heart::after {
+    content: "";
+
+    position: absolute;
+
+    width: 75px;
+    height: 75px;
+
+    background: #c97b83;
+
+    border-radius: 50%;
+}
+
+.heart::before {
+    top: -37px;
+    left: 0;
+}
+
+.heart::after {
+    top: 0;
+    left: 37px;
+}
+
+
+/* Lock body */
+
+.lock-symbol {
+    position: absolute;
+
+    z-index: 5;
+
+    width: 30px;
+    height: 28px;
+
+    left: 45px;
+    top: 45px;
+
+    background: #fff4ed;
+
+    border-radius: 4px;
+
+    box-shadow:
+        0 3px 8px rgba(70,40,40,0.2);
+}
+
+
+/* Lock shackle */
+
+.lock-symbol::before {
+    content: "";
+
+    position: absolute;
+
+    width: 16px;
+    height: 18px;
+
+    border: 4px solid #fff4ed;
+
+    border-bottom: none;
+
+    border-radius: 12px 12px 0 0;
+
+    left: 3px;
+    top: -15px;
+}
+
+
+/* Keyhole */
+
+.keyhole {
+    position: absolute;
+
+    width: 5px;
+    height: 9px;
+
+    border-radius: 5px;
+
+    background: #c97b83;
+
+    left: 12px;
+    top: 8px;
+}
+
+
+/* =========================
+   QUESTIONS
+========================= */
+
+.question {
+    display: none;
+
+    animation: questionAppear 0.5s ease;
+}
+
+.question.active {
+    display: block;
+}
+
+@keyframes questionAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* Message */
+
+#message {
+    min-height: 22px;
+
+    margin-top: 15px;
+
+    font-size: 14px;
+
+    font-style: italic;
+
+    color: #9b696d;
+}
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+
+            font-family: Georgia, "Times New Roman", serif;
+
+            color: #5b4646;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #f8e9e8,
+                    #f6eee4,
+                    #eee8dc
+                );
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding: 25px;
+        }
+
+        #lock-page {
+            width: 100%;
+            max-width: 420px;
+
+            padding: 40px 25px;
+
+            text-align: center;
+
+            background: rgba(255, 250, 245, 0.8);
+
+            border: 1px solid rgba(120, 90, 80, 0.2);
+
+            border-radius: 10px;
+
+            box-shadow:
+                0 15px 40px rgba(80, 50, 45, 0.15);
+        }
+
+        h1 {
+            font-size: 34px;
+
+            font-weight: normal;
+
+            margin-bottom: 15px;
+
+            color: #654c4c;
+        }
+
+        #lock-page > p {
+            font-size: 15px;
+
+            line-height: 1.7;
+
+            color: #806b6b;
+
+            margin-bottom: 30px;
+        }
+
+        #heart-lock {
+            font-size: 80px;
+
+            margin: 20px 0 30px;
+
+            cursor: pointer;
+
+            transition: transform 0.3s ease;
+        }
+
+        #heart-lock:hover {
+            transform: scale(1.08);
+        }
+
+        #questions p:first-child {
+            font-size: 12px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 3px;
+
+            color: #a27b7b;
+        }
+
+        #questions p:nth-child(2) {
+            font-size: 18px;
+
+            line-height: 1.5;
+
+            margin-bottom: 15px;
+        }
+
+        input {
+            width: 100%;
+
+            padding: 13px;
+
+            border: none;
+
+            border-bottom: 1px solid #b89595;
+
+            background: rgba(255,255,255,0.5);
+
+            text-align: center;
+
+            font-family: Georgia, "Times New Roman", serif;
+
+            font-size: 16px;
+
+            outline: none;
+        }
+
+        input:focus {
+            border-bottom-color: #b56f77;
+        }
+
+        button {
+            margin-top: 20px;
+
+            padding: 12px 25px;
+
+            border: none;
+
+            border-radius: 25px;
+
+            background: #b9787e;
+
+            color: white;
+
+            font-family: Georgia, "Times New Roman", serif;
+
+            font-size: 15px;
+
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #a96870;
+        }
+
+    </style>
+    
+</head>
+
+
+<body>
+
+    <main id="lock-page">
+
+        <h1>Before you enter… ♡</h1>
+
+        <p>
+            There are three little things you should know by heart.
+        </p>
+
+        <!-- The heart lock will go here -->
+
+       <div id="heart-lock">
+
+    <div class="heart"></div>
+
+    <div class="lock-symbol">
+        <div class="keyhole"></div>
+    </div>
+
+</div>
+
+       <!-- Questions will go here -->
+
+        <div id="questions">
+
+    <!-- QUESTION 1 -->
+
+    <div class="question active" id="question1">
+
+        <p>Little thing 01</p>
+
+        <p>What nickname do I call you? ♡</p>
+
+        <input
+            type="text"
+            id="answer1"
+            placeholder="Type your answer..."
+        >
+
+        <button onclick="checkAnswer(1)">
+            Continue ♡
+        </button>
+
+    </div>
+
+
+    <!-- QUESTION 2 -->
+
+    <div class="question" id="question2">
+
+        <p>Little thing 02</p>
+
+        <p>When is our anniversary? 🌷</p>
+
+        <input
+            type="text"
+            id="answer2"
+            placeholder="Day + month..."
+        >
+
+        <button onclick="checkAnswer(2)">
+            Continue ♡
+        </button>
+
+    </div>
+
+
+    <!-- QUESTION 3 -->
+
+    <div class="question" id="question3">
+
+        <p>Little thing 03</p>
+
+        <p>What's my favourite flower? 🌸</p>
+
+        <input
+            type="text"
+            id="answer3"
+            placeholder="Type your answer..."
+        >
+
+        <button onclick="checkAnswer(3)">
+            Unlock ♡
+        </button>
+
+    </div>
+
+
+    <p id="message"></p>
+
+</div>
+    </main>
+
+</body>
+<script>
+
+    const correctAnswers = {
+
+        1: "carino",
+        2: "23 january",
+        3: "lily"
+
+    };
+
+
+    function checkAnswer(number) {
+
+        const input =
+            document.getElementById(
+                "answer" + number
+            );
+
+        const userAnswer =
+            input.value
+                .trim()
+                .toLowerCase()
+                .replace(/\s+/g, " ");
+
+        const message =
+            document.getElementById("message");
+
+
+        /* Empty answer */
+
+        if (userAnswer === "") {
+
+            message.textContent =
+                "Give it a little try first. ♡";
+
+            return;
+        }
+
+
+        /* Correct answer */
+
+        if (
+            userAnswer ===
+            correctAnswers[number]
+        ) {
+
+            message.textContent =
+                "That's right. ♡";
+
+
+            if (number < 3) {
+
+                setTimeout(function() {
+
+                    document
+                        .getElementById(
+                            "question" + number
+                        )
+                        .classList.remove("active");
+
+                    document
+                        .getElementById(
+                            "question" + (number + 1)
+                        )
+                        .classList.add("active");
+
+                    document.getElementById(
+                        "message"
+                    ).textContent = "";
+
+                    document.getElementById(
+                        "answer" + (number + 1)
+                    ).focus();
+
+                }, 600);
+
+            }
+
+            else {
+
+                unlockHeart();
+
+            }
+
+        }
+
+
+        /* Wrong answer */
+
+        else {
+
+            message.textContent =
+                "Hmm… not quite. Think again. ♡";
+
+            input.value = "";
+
+            input.focus();
+
+        }
+
+    }
+
+
+    function unlockHeart() {
+
+        const heartLock =
+            document.getElementById(
+                "heart-lock"
+            );
+
+        heartLock.style.transform =
+            "scale(1.15)";
+
+        document.getElementById(
+            "message"
+        ).textContent =
+            "You remembered everything. ♡";
+
+        setTimeout(function() {
+
+            heartLock.style.opacity = "0";
+
+            heartLock.style.transform =
+                "scale(1.4)";
+
+        }, 700);
+
+    }
+
+</script>
+</html>
